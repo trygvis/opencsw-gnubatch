@@ -1,0 +1,27 @@
+--- gnubatch-1.1/util/Makefile.in.orig	Sun Sep 20 23:27:33 2009
++++ gnubatch-1.1/util/Makefile.in	Sun Sep 20 23:28:01 2009
+@@ -61,16 +61,16 @@
+ 	$(CC) $(LDFLAGS) -o $@ hostedit.o parsehtab.o cursproc.o $(LIBCURSES) $(LIBNET)
+ 
+ install:	all
+-	$(INSTALL) -d $(SBINDIR)
+-	$(INSTALL) -d $(BINDIR)
+-	$(INSTALL) $(PROGS) $(SBINDIR)
+-#	$(INSTALL) shmdump $(BINDIR)
++	$(INSTALL) -d $(DESTDIR)$(SBINDIR)
++	$(INSTALL) -d $(DESTDIR)$(BINDIR)
++	$(INSTALL) $(PROGS) $(DESTDIR)$(SBINDIR)
++#	$(INSTALL) shmdump $(DESTDIR)$(BINDIR)
+ 
+ install-strip:	all
+-	$(INSTALL) -d $(SBINDIR)
+-	$(INSTALL) -d $(BINDIR)
+-	$(INSTALL) -s $(PROGS) $(SBINDIR)
+-#	$(INSTALL) -s shmdump $(BINDIR)
++	$(INSTALL) -d $(DESTDIR)$(SBINDIR)
++	$(INSTALL) -d $(DESTDIR)$(BINDIR)
++	$(INSTALL) -s $(PROGS) $(DESTDIR)$(SBINDIR)
++#	$(INSTALL) -s shmdump $(DESTDIR)$(BINDIR)
+ 
+ clean:
+ 	$(RM) *.o helpparse $(BUILDPROGS) $(PROGS) shmdump y.tab.h

@@ -1,0 +1,23 @@
+--- gnubatch-1.1/src/apilib/Makefile.in.orig	Mon Sep 21 00:45:11 2009
++++ gnubatch-1.1/src/apilib/Makefile.in	Mon Sep 21 00:45:30 2009
+@@ -142,14 +142,14 @@
+ 	sh ./Hdrmake.sh $(BASE)/config.h $(HDRS)
+ 
+ install:
+-	$(INSTALL) -d $(LIBDIR)
+-	$(INSTALL_DATA) $(APILIB) $(LIBDIR)
+-	if test -f $(APISHLIB); then $(INSTALL) $(APISHLIB) $(LIBDIR); fi
++	$(INSTALL) -d $(DESTDIR)$(LIBDIR)
++	$(INSTALL_DATA) $(APILIB) $(DESTDIR)$(LIBDIR)
++	if test -f $(APISHLIB); then $(INSTALL) $(APISHLIB) $(DESTDIR)$(LIBDIR); fi
+ 
+ install_strip:
+-	$(INSTALL) -d $(LIBDIR)
+-	$(INSTALL_DATA) $(APILIB) $(LIBDIR)
+-	if test -f $(APISHLIB); then $(INSTALL) $(APISHLIB) $(LIBDIR); fi
++	$(INSTALL) -d $(DESTDIR)$(LIBDIR)
++	$(INSTALL_DATA) $(APILIB) $(DESTDIR)$(LIBDIR)
++	if test -f $(APISHLIB); then $(INSTALL) $(APISHLIB) $(DESTDIR)$(LIBDIR); fi
+ 
+ clean:
+ 	$(RM) gbatch.h *.[oa] *.ln *.so

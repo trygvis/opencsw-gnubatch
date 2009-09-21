@@ -1,0 +1,19 @@
+--- gnubatch-1.1/src/ins/Makefile.in.orig	Mon Sep 21 00:43:51 2009
++++ gnubatch-1.1/src/ins/Makefile.in	Mon Sep 21 00:44:11 2009
+@@ -64,12 +64,12 @@
+ 	$(CC) $(LDFLAGS) -o $@ ripc.o $(LIB) $(LIBNET) $(LIBS) -lm
+ 
+ install:	all
+-	$(INSTALL) $(PROGS) $(SBINDIR)
+-	$(INSTALL) $(USERMODES) $(USERPROGS) $(SBINDIR)
++	$(INSTALL) $(PROGS) $(DESTDIR)$(SBINDIR)
++	$(INSTALL) $(USERMODES) $(USERPROGS) $(DESTDIR)$(SBINDIR)
+ 
+ install-strip:	all
+-	$(INSTALL) -s $(PROGS) $(SBINDIR)
+-	$(INSTALL) -s $(USERMODES) $(USERPROGS) $(SBINDIR)
++	$(INSTALL) -s $(PROGS) $(DESTDIR)$(SBINDIR)
++	$(INSTALL) -s $(USERMODES) $(USERPROGS) $(DESTDIR)$(SBINDIR)
+ 
+ clean:
+ 	$(RM) *.o gbch-atcover gbch-btuconv gbch-ciconv gbch-cjlist gbch-cvlist gbch-ripc y.tab.?

@@ -1,0 +1,19 @@
+--- gnubatch-1.1/src/remcgi/Makefile.in.orig	Mon Sep 21 00:46:43 2009
++++ gnubatch-1.1/src/remcgi/Makefile.in	Mon Sep 21 00:47:04 2009
+@@ -109,12 +109,12 @@
+ 	touch $@
+ 
+ install:
+-	$(INSTALL) -d $(CGIBINDIR)
+-	$(INSTALL) $(RCGIMODES) rbtjcgi rbtjccgi rbtjcrcgi rbtjdcgi rbtjvcgi rbtvcgi rbtvccgi $(CGIBINDIR)
++	$(INSTALL) -d $(DESTDIR)$(CGIBINDIR)
++	$(INSTALL) $(RCGIMODES) rbtjcgi rbtjccgi rbtjcrcgi rbtjdcgi rbtjvcgi rbtvcgi rbtvccgi $(DESTDIR)$(CGIBINDIR)
+ 
+ install-strip:
+-	$(INSTALL) -d $(CGIBINDIR)
+-	$(INSTALL) -s $(RCGIMODES) rbtjcgi rbtjccgi rbtjcrcgi rbtjdcgi rbtjvcgi rbtvcgi rbtvccgi $(CGIBINDIR)
++	$(INSTALL) -d $(DESTDIR)$(CGIBINDIR)
++	$(INSTALL) -s $(RCGIMODES) rbtjcgi rbtjccgi rbtjcrcgi rbtjdcgi rbtjvcgi rbtvcgi rbtvccgi $(DESTDIR)$(CGIBINDIR)
+ 
+ clean:
+ 	$(RM) *.o rbtjcgi rbtjccgi rbtjcrcgi rbtjdcgi rbtjvcgi rbtvcgi rbtvccgi *_s

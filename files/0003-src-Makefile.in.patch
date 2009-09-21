@@ -1,0 +1,91 @@
+--- gnubatch-1.1/src/Makefile.in.orig	Sun Sep 20 23:31:19 2009
++++ gnubatch-1.1/src/Makefile.in	Sun Sep 20 23:33:27 2009
+@@ -333,48 +333,48 @@
+ ##################################################################################
+ 
+ install: all
+-	@perlbin@ $(BASE)/Checkuserinst $(BATCHUSER) @spooldir@
+-	$(INSTALL) -d -o $(BATCHUSER) -g root -m 755 @spooldir@
+-	$(INSTALL) -d -o $(BATCHUSER) -g root -m 755 @pkgexecdir@
+-	$(INSTALL) -d -o $(BATCHUSER) -g root -m 755 @sphelpdir@
+-	cd lib;$(MAKE) install prefix="$(prefix)" exec_prefix="$(exec_prefix)"
+-	$(INSTALL) $(USERMODES) $(USERBINS) $(BINDIR)
+-	$(INSTALL) $(NOSETMODES) $(NOSETUBINS) $(BINDIR)
+-	cd $(BINDIR);for p in $(BTSTARTLNKS); do ln -f gbch-start $$p; done
+-	cd $(BINDIR);for p in $(BTJDELLNKS); do ln -f gbch-jdel $$p; done
+-	$(INSTALL) $(SUIDROOT) $(SUIDROOTBINS) $(INTBINDIR)
+-	$(INSTALL) $(USERMODES) $(SUIDBTBINS) $(INTBINDIR)
+-	$(INSTALL) $(TTYGROUP) $(TTYGRPBINS) $(INTBINDIR)
+-	cd helpmsg;$(MAKE) install prefix="$(prefix)" exec_prefix="$(exec_prefix)"
+-	cd loccgi;$(MAKE) install prefix="$(prefix)" exec_prefix="$(exec_prefix)"
+-	cd ins;$(MAKE) install prefix="$(prefix)" exec_prefix="$(exec_prefix)"
+-	cd apilib;$(MAKE) install prefix="$(prefix)" exec_prefix="$(exec_prefix)"
+-	cd remcgi;$(MAKE) install prefix="$(prefix)" exec_prefix="$(exec_prefix)"
+-	-cd gtk;$(MAKE) install prefix="$(prefix)" exec_prefix="$(exec_prefix)"
+-##	-cd motif;$(MAKE) install prefix="$(prefix)" exec_prefix="$(exec_prefix)"
+-	@perlbin@ $(BASE)/Checknetinst
++#	@perlbin@ $(BASE)/Checkuserinst $(BATCHUSER) @spooldir@
++	$(INSTALL) -d -m 755 $(DESTDIR)@spooldir@
++	$(INSTALL) -d -m 755 $(DESTDIR)@pkgexecdir@
++	$(INSTALL) -d -m 755 $(DESTDIR)@sphelpdir@
++	cd lib;$(MAKE) install prefix="$(prefix)" exec_prefix="$(exec_prefix)" DESTDIR=$(DESTDIR)
++	$(INSTALL) $(USERMODES) $(USERBINS) $(DESTDIR)$(BINDIR)
++	$(INSTALL) $(NOSETMODES) $(NOSETUBINS) $(DESTDIR)$(BINDIR)
++	cd $(DESTDIR)$(BINDIR);for p in $(BTSTARTLNKS); do ln -f gbch-start $$p; done
++	cd $(DESTDIR)$(BINDIR);for p in $(BTJDELLNKS); do ln -f gbch-jdel $$p; done
++	$(INSTALL) $(SUIDROOT) $(SUIDROOTBINS) $(DESTDIR)$(INTBINDIR)
++	$(INSTALL) $(USERMODES) $(SUIDBTBINS) $(DESTDIR)$(INTBINDIR)
++	$(INSTALL) $(TTYGROUP) $(TTYGRPBINS) $(DESTDIR)$(INTBINDIR)
++	cd helpmsg;$(MAKE) install prefix="$(prefix)" exec_prefix="$(exec_prefix)" DESTDIR=$(DESTDIR)
++	cd loccgi;$(MAKE) install prefix="$(prefix)" exec_prefix="$(exec_prefix)" DESTDIR=$(DESTDIR)
++	cd ins;$(MAKE) install prefix="$(prefix)" exec_prefix="$(exec_prefix)" DESTDIR=$(DESTDIR)
++	cd apilib;$(MAKE) install prefix="$(prefix)" exec_prefix="$(exec_prefix)" DESTDIR=$(DESTDIR)
++	cd remcgi;$(MAKE) install prefix="$(prefix)" exec_prefix="$(exec_prefix)" DESTDIR=$(DESTDIR)
++	-cd gtk;$(MAKE) install prefix="$(prefix)" exec_prefix="$(exec_prefix)" DESTDIR=$(DESTDIR)
++##	-cd motif;$(MAKE) install prefix="$(prefix)" exec_prefix="$(exec_prefix)" DESTDIR=$(DESTDIR)
++#	@perlbin@ $(BASE)/Checknetinst
+ 
+ install-strip:
+-	@perlbin@ $(BASE)/Checkuserinst $(BATCHUSER) @spooldir@
+-	$(INSTALL) -d -o $(BATCHUSER) -g root -m 755 @spooldir@
+-	$(INSTALL) -d -o $(BATCHUSER) -g root -m 755 @pkgexecdir@
+-	$(INSTALL) -d -o $(BATCHUSER) -g root -m 755 @sphelpdir@
+-	cd lib;$(MAKE) install prefix="$(prefix)" exec_prefix="$(exec_prefix)"
+-	$(INSTALL) -s $(USERMODES) $(USERBINS) $(BINDIR)
+-	$(INSTALL) -s $(NOSETMODES) $(NOSETUBINS) $(BINDIR)
+-	cd $(BINDIR);for p in $(BTSTARTLNKS); do ln -f gbch-start $$p; done
+-	cd $(BINDIR);for p in $(BTJDELLNKS); do ln -f gbch-jdel $$p; done
+-	$(INSTALL) -s $(SUIDROOT) $(SUIDROOTBINS) $(INTBINDIR)
+-	$(INSTALL) -s $(USERMODES) $(SUIDBTBINS) $(INTBINDIR)
+-	$(INSTALL) -s $(TTYGROUP) $(TTYGRPBINS) $(INTBINDIR)
+-	cd helpmsg;$(MAKE) install-strip prefix="$(prefix)" exec_prefix="$(exec_prefix)"
+-	cd loccgi;$(MAKE) install-strip prefix="$(prefix)" exec_prefix="$(exec_prefix)"
+-	cd ins;$(MAKE) install-strip prefix="$(prefix)" exec_prefix="$(exec_prefix)"
+-	cd apilib;$(MAKE) install-strip prefix="$(prefix)" exec_prefix="$(exec_prefix)"
+-	cd remcgi;$(MAKE) install-strip prefix="$(prefix)" exec_prefix="$(exec_prefix)"
+-	-cd gtk;$(MAKE) install-strip prefix="$(prefix)" exec_prefix="$(exec_prefix)"
+-##	-cd motif;$(MAKE) install-strip prefix="$(prefix)" exec_prefix="$(exec_prefix)"
+-	@perlbin@ $(BASE)/Checknetinst
++#	@perlbin@ $(BASE)/Checkuserinst $(BATCHUSER) @spooldir@
++	$(INSTALL) -d -m 755 $(DESTDIR)@spooldir@
++	$(INSTALL) -d -m 755 $(DESTDIR)@pkgexecdir@
++	$(INSTALL) -d -m 755 $(DESTDIR)@sphelpdir@
++	cd lib;$(MAKE) install prefix="$(prefix)" exec_prefix="$(exec_prefix)" DESTDIR=$(DESTDIR)
++	$(INSTALL) -s $(USERMODES) $(USERBINS) $(DESTDIR)$(BINDIR)
++	$(INSTALL) -s $(NOSETMODES) $(NOSETUBINS) $(DESTDIR)$(BINDIR)
++	cd $(DESTDIR)$(BINDIR);for p in $(BTSTARTLNKS); do ln -f gbch-start $$p; done
++	cd $(DESTDIR)$(BINDIR);for p in $(BTJDELLNKS); do ln -f gbch-jdel $$p; done
++	$(INSTALL) -s $(SUIDROOT) $(SUIDROOTBINS) $(DESTDIR)$(INTBINDIR)
++	$(INSTALL) -s $(USERMODES) $(SUIDBTBINS) $(DESTDIR)$(INTBINDIR)
++	$(INSTALL) -s $(TTYGROUP) $(TTYGRPBINS) $(DESTDIR)$(INTBINDIR)
++	cd helpmsg;$(MAKE) install-strip prefix="$(prefix)" exec_prefix="$(exec_prefix)" DESTDIR=$(DESTDIR)
++	cd loccgi;$(MAKE) install-strip prefix="$(prefix)" exec_prefix="$(exec_prefix)" DESTDIR=$(DESTDIR)
++	cd ins;$(MAKE) install-strip prefix="$(prefix)" exec_prefix="$(exec_prefix)" DESTDIR=$(DESTDIR)
++	cd apilib;$(MAKE) install-strip prefix="$(prefix)" exec_prefix="$(exec_prefix)" DESTDIR=$(DESTDIR)
++	cd remcgi;$(MAKE) install-strip prefix="$(prefix)" exec_prefix="$(exec_prefix)" DESTDIR=$(DESTDIR)
++	-cd gtk;$(MAKE) install-strip prefix="$(prefix)" exec_prefix="$(exec_prefix)" DESTDIR=$(DESTDIR)
++##	-cd motif;$(MAKE) install-strip prefix="$(prefix)" exec_prefix="$(exec_prefix)" DESTDIR=$(DESTDIR)
++#	@perlbin@ $(BASE)/Checknetinst
+ 
+ #
+ #	Clean-ups.

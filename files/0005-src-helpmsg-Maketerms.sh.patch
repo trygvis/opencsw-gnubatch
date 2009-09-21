@@ -1,0 +1,29 @@
+--- gnubatch-1.1/src/helpmsg/Maketerms.sh.orig	Mon Sep 21 02:16:18 2009
++++ gnubatch-1.1/src/helpmsg/Maketerms.sh	Mon Sep 21 02:16:39 2009
+@@ -33,7 +33,7 @@
+ 		rm -f $screenhelp.*
+ 		mv saved $screenhelp.help
+ 	fi
+-	sed -f - $screenhelp.help >$screenhelp.dumb <<\%
++	sed -f /dev/stdin $screenhelp.help >$screenhelp.dumb <<\%
+ s/,\\kUP//
+ s/,\\kDOWN//
+ s/,\\kLEFT//
+@@ -41,7 +41,7 @@
+ s/,\\kHOME//
+ s/\\kKILL/\\kINTR/
+ %
+-	sed -f - $screenhelp.help >$screenhelp.vt100 <<\%
++	sed -f /dev/stdin $screenhelp.help >$screenhelp.vt100 <<\%
+ s/\\kKILL/\\kINTR/
+ s/,\\kHOME//
+ /==============/{
+@@ -53,7 +53,7 @@
+ 	do
+ 		ln -f $screenhelp.vt100 $screenhelp.$t
+ 	done
+-	sed -f - $screenhelp.help >$screenhelp.wy60 <<\%
++	sed -f /dev/stdin $screenhelp.help >$screenhelp.wy60 <<\%
+ s/,\\kHOME//
+ s/\\kKILL/\\kQUIT/
+ s/\\kERASE/\\x7f/

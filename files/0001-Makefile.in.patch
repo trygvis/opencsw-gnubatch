@@ -1,0 +1,27 @@
+--- gnubatch-1.1/Makefile.in.orig	Wed Feb 18 07:51:14 2009
++++ gnubatch-1.1/Makefile.in	Mon Sep 21 01:10:50 2009
+@@ -50,16 +50,16 @@
+ 	touch $@
+ 
+ install:	all
+-	cd $(UTILDIR);make install
+-	cd $(BUILDDIR);$(MAKE) install prefix="$(prefix)" exec_prefix="$(exec_prefix)"
+-	$(BINDIR)/gbch-uchange -R
+-	$(BINDIR)/gbch-uchange -p ALL `who am i|sed -e 's/ .*//'`
++	cd $(UTILDIR);make install DESTDIR=$(DESTDIR) USERMODES= CGIMODES= RCGIMODES= NOSETMODES= SUIDROOT= TTYGROUP=
++	cd $(BUILDDIR);$(MAKE) install prefix="$(prefix)" exec_prefix="$(exec_prefix)" DESTDIR=$(DESTDIR) USERMODES= CGIMODES= RCGIMODES= NOSETMODES= SUIDROOT= TTYGROUP=
++#	$(BINDIR)/gbch-uchange -R
++#	$(BINDIR)/gbch-uchange -p ALL `who am i|sed -e 's/ .*//'`
+ 
+ install-strip:	all
+-	cd $(UTILDIR);make install-strip
+-	cd $(BUILDDIR);$(MAKE) install-strip prefix="$(prefix)" exec_prefix="$(exec_prefix)"
+-	$(BINDIR)/gbch-uchange -R
+-	$(BINDIR)/gbch-uchange -p ALL `who am i|sed -e 's/ .*//'`
++	cd $(UTILDIR);make install-strip DESTDIR=$(DESTDIR) USERMODES= CGIMODES= RCGIMODES= NOSETMODES= SUIDROOT= TTYGROUP=
++	cd $(BUILDDIR);$(MAKE) install-strip prefix="$(prefix)" exec_prefix="$(exec_prefix)" DESTDIR=$(DESTDIR) USERMODES= CGIMODES= RCGIMODES= NOSETMODES= SUIDROOT= TTYGROUP=
++#	$(BINDIR)/gbch-uchange -R
++#	$(BINDIR)/gbch-uchange -p ALL `who am i|sed -e 's/ .*//'`
+ 
+ install-user user-install:
+ 	@perlbin@ $(BASE)/Userinst

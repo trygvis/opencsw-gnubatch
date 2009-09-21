@@ -1,0 +1,19 @@
+--- gnubatch-1.1/src/loccgi/Makefile.in.orig	Mon Sep 21 00:39:01 2009
++++ gnubatch-1.1/src/loccgi/Makefile.in	Mon Sep 21 00:39:18 2009
+@@ -106,12 +106,12 @@
+ 	touch $@
+ 
+ install:
+-	$(INSTALL) -d $(CGIBINDIR)
+-	$(INSTALL) $(CGIMODES) $(PROGS) $(CGIBINDIR)
++	$(INSTALL) -d $(DESTDIR)$(CGIBINDIR)
++	$(INSTALL) $(CGIMODES) $(PROGS) $(DESTDIR)$(CGIBINDIR)
+ 
+ install-strip:
+-	$(INSTALL) -d $(CGIBINDIR)
+-	$(INSTALL) -s $(CGIMODES) $(PROGS) $(CGIBINDIR)
++	$(INSTALL) -d $(DESTDIR)$(CGIBINDIR)
++	$(INSTALL) -s $(CGIMODES) $(PROGS) $(DESTDIR)$(CGIBINDIR)
+ 
+ #	Clean-ups.
+ 

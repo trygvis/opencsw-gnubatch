@@ -1,0 +1,12 @@
+fa32b658358a35b89e496bf5f2f7e66f  download/0001-Makefile.in.patch
+f761719b42b2d2a51538f471020e83e3  download/0002-util-Makefile.in.patch
+635afdbaf452092c7c29f90c7a28a9a1  download/0003-src-Makefile.in.patch
+532762d2d9f48203ecd9e65d5c6a7714  download/0004-src-lib-Makefile.in.patch
+040b2d4d6902ff6f96e30bed3cdd125c  download/0005-src-helpmsg-Maketerms.sh.patch
+b3a734a1263466c2a0cfd2a63906df4b  download/0006-src-helpmsg-Makefile.in.patch
+8a846e27d3cc538c7cad1171bd70270e  download/0007-src-logcgi-Makefile.in.patch
+0ecbefbf2584238b9c7f103475e00559  download/0008-src-ins-Makefile.in.patch
+dee0bc476d3430bc42122a213fbf9e97  download/0009-src-apilib-Makefile.in.patch
+80bc8fedaa47a9722ad09f00129ffcf1  download/0010-src-remcgi-Makefile.in.patch
+50083532653123a17d220ba685ea6f90  download/0011-src-gtk-Makefile.in.patch
+b874fda568beb4bfb5aa2df3061c2c7b  download/gnubatch-1.1.tar.gz

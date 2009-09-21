@@ -1,0 +1,23 @@
+--- gnubatch-1.1/src/lib/Makefile.in.orig	Sun Sep 20 23:46:56 2009
++++ gnubatch-1.1/src/lib/Makefile.in	Sun Sep 20 23:47:22 2009
+@@ -341,14 +341,14 @@
+ 	$(LDSHARED) $(SHLIBCURS) -h $(SHLIBCURS) $(SHLIBCURS_OBJS)
+ 
+ install:
+-	$(INSTALL) -d $(LIBDIR)
+-	$(INSTALL_DATA) $(LIB) $(LIBDIR)
+-	if test -f $(SHLIB); then $(INSTALL) $(SHLIB) $(SHLIBCLIENT) $(SHLIBCURS) $(LIBDIR); fi
++	$(INSTALL) -d $(DESTDIR)$(LIBDIR)
++	$(INSTALL_DATA) $(LIB) $(DESTDIR)$(LIBDIR)
++	if test -f $(SHLIB); then $(INSTALL) $(SHLIB) $(SHLIBCLIENT) $(SHLIBCURS) $(DESTDIR)$(LIBDIR); fi
+ 
+ install_strip:
+-	$(INSTALL) -d $(LIBDIR)
+-	$(INSTALL_DATA) $(LIB) $(LIBDIR)
+-	if test -f $(SHLIB); then $(INSTALL) $(SHLIB) $(SHLIBCLIENT) $(SHLIBCURS) $(LIBDIR); fi
++	$(INSTALL) -d $(DESTDIR)$(LIBDIR)
++	$(INSTALL_DATA) $(LIB) $(DESTDIR)$(LIBDIR)
++	if test -f $(SHLIB); then $(INSTALL) $(SHLIB) $(SHLIBCLIENT) $(SHLIBCURS) $(DESTDIR)$(LIBDIR); fi
+ 
+ clean:
+ 	$(RM) *.[oa] *.so
